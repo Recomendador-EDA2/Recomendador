@@ -27,6 +27,8 @@ int main(void)
    int u4 = adicionar_vertice(&g, "u4", USUARIO); /* Thiago */
    int u5 = adicionar_vertice(&g, "u5", USUARIO); /* Ana */
    int u6 = adicionar_vertice(&g, "u6", USUARIO); /* Carlos */
+   int u7 = adicionar_vertice(&g, "u7", USUARIO); /* Larissa */
+   int u8 = adicionar_vertice(&g, "u8", USUARIO); /* Rafael */
 
    /* ── Livros ── */
    int t1 = adicionar_vertice(&g, "t1", TEXTO); /* Dom Casmurro */
@@ -43,6 +45,12 @@ int main(void)
    int t12 = adicionar_vertice(&g, "t12", TEXTO); /* As Cronicas de Narnia */
    int t13 = adicionar_vertice(&g, "t13", TEXTO); /* O Apanhador no Campo de Centeio */
    int t14 = adicionar_vertice(&g, "t14", TEXTO); /* Garota Exemplar */
+   int t15 = adicionar_vertice(&g, "t15", TEXTO); /* Moby Dick */
+   int t16 = adicionar_vertice(&g, "t16", TEXTO); /* Jane Eyre */
+   int t17 = adicionar_vertice(&g, "t17", TEXTO); /* O Iluminado */
+   int t18 = adicionar_vertice(&g, "t18", TEXTO); /* Robinson Crusoe */
+   int t19 = adicionar_vertice(&g, "t19", TEXTO); /* Wuthering Heights */
+   int t20 = adicionar_vertice(&g, "t20", TEXTO); /* O Silencio dos Inocentes */
 
    /* ── Generos ── */
    int fi = adicionar_vertice(&g, "ficcao", GENERO);
@@ -167,6 +175,48 @@ int main(void)
    definir_conteudo(&g, ro, "amor paixao coracao sofrimento casal");
    definir_conteudo(&g, th, "traicao vinganca morte perigo inimigo destino");
 
+   /* Moby Dick — aventura/vinganca */
+   definir_conteudo(&g, t15,
+                    "uma aventura obsessiva pelo mar leva o capitao a cacar uma "
+                    "criatura gigante. a vinganca move o heroi contra o inimigo em "
+                    "uma batalha perigosa. o destino da tripulacao se decide em meio "
+                    "ao perigo e a coragem. aventura mar perigo batalha e vinganca.");
+
+   /* Jane Eyre — romance/tragedia */
+   definir_conteudo(&g, t16,
+                    "um amor sincero nasce em meio a duvida e ao sofrimento de uma "
+                    "jovem orfa. a paixao enfrenta segredos e a traicao do passado "
+                    "do homem que ela ama. o coracao supera a tragedia e encontra o "
+                    "destino do amor verdadeiro. amor paixao coracao e sofrimento.");
+
+   /* O Iluminado — thriller/terror */
+   definir_conteudo(&g, t17,
+                    "um perigo sombrio cresce dentro de um hotel isolado durante o "
+                    "inverno. a mente do pai se corrompe e o inimigo se torna ele "
+                    "mesmo. a familia enfrenta a morte enquanto o destino se revela "
+                    "aos poucos. perigo morte inimigo e destino marcam este thriller.");
+
+   /* Robinson Crusoe — aventura/sobrevivencia */
+   definir_conteudo(&g, t18,
+                    "uma aventura de sobrevivencia apos um naufragio em uma ilha "
+                    "desconhecida. a coragem do heroi enfrenta o perigo sozinho por "
+                    "anos no mar. a batalha contra a natureza exige coragem e "
+                    "engenho a cada dia. aventura mar coragem perigo e batalha.");
+
+   /* Wuthering Heights — romance/tragedia */
+   definir_conteudo(&g, t19,
+                    "uma paixao intensa e destrutiva une duas almas desde a "
+                    "infancia na montanha. o ciume e a traicao alimentam um amor "
+                    "que vira obsessao e tragedia. o coracao sofre ate a morte sem "
+                    "nunca esquecer o destino. paixao ciume traicao e tragedia.");
+
+   /* O Silencio dos Inocentes — thriller/misterio */
+   definir_conteudo(&g, t20,
+                    "um thriller perturbador onde uma agente busca capturar um "
+                    "assassino perigoso. a traicao e a manipulacao de um inimigo "
+                    "brilhante guiam a investigacao da morte. o destino das vitimas "
+                    "depende da coragem da agente. traicao perigo morte e inimigo.");
+
    /* ── Leituras: Usuario -> Texto (peso = nota) ── */
    adicionar_arco(&g, u1, t1, 5.0);
    adicionar_arco(&g, u1, t2, 4.0);
@@ -184,6 +234,12 @@ int main(void)
    adicionar_arco(&g, u6, t11, 5.0);
    adicionar_arco(&g, u6, t13, 4.0);
    adicionar_arco(&g, u6, t14, 4.0);
+   adicionar_arco(&g, u7, t15, 5.0);
+   adicionar_arco(&g, u7, t17, 4.0);
+   adicionar_arco(&g, u7, t20, 4.0);
+   adicionar_arco(&g, u8, t16, 5.0);
+   adicionar_arco(&g, u8, t18, 4.0);
+   adicionar_arco(&g, u8, t19, 3.0);
 
    /* ── Categorizacao Texto -> Genero: agora DINAMICA (ver Fase 0).
       Os antigos vinculos manuais foram removidos e sao substituidos
@@ -236,6 +292,14 @@ int main(void)
    (void)t12;
    (void)t13;
    (void)t14;
+   (void)u7;
+   (void)u8;
+   (void)t15;
+   (void)t16;
+   (void)t17;
+   (void)t18;
+   (void)t19;
+   (void)t20;
 
    liberar_digrafo(&g);
    return 0;
