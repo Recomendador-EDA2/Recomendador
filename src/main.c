@@ -24,6 +24,7 @@ int main(void)
    int u1 = adicionar_vertice(&g, "u1", USUARIO); /* Joao */
    int u2 = adicionar_vertice(&g, "u2", USUARIO); /* Maria */
    int u3 = adicionar_vertice(&g, "u3", USUARIO); /* Pedro */
+   int u4 = adicionar_vertice(&g, "u4", USUARIO); /* Thiago */
 
    /* ── Livros ── */
    int t1 = adicionar_vertice(&g, "t1", TEXTO); /* Dom Casmurro */
@@ -31,6 +32,9 @@ int main(void)
    int t3 = adicionar_vertice(&g, "t3", TEXTO); /* Romeu e Julieta */
    int t4 = adicionar_vertice(&g, "t4", TEXTO); /* A Ilha do Tesouro */
    int t5 = adicionar_vertice(&g, "t5", TEXTO); /* O Conde de Monte Cristo */
+   int t6 = adicionar_vertice(&g, "t6", TEXTO); /* Percy Jackson */
+   int t7 = adicionar_vertice(&g, "t7", TEXTO); /* O Hobbit */
+   int t8 = adicionar_vertice(&g, "t8", TEXTO); /* O Codigo Da Vinci */
 
    /* ── Generos ── */
    int fi = adicionar_vertice(&g, "ficcao", GENERO);
@@ -79,6 +83,27 @@ int main(void)
                     "tesouro leva o heroi ao mar. vinganca traicao e amor caminham juntos "
                     "nesta aventura de coragem e destino.");
 
+   /* Percy Jackson — aventura/heroi */
+   definir_conteudo(&g, t6,
+                    "uma aventura epica onde um jovem heroi enfrenta o perigo e a batalha. "
+                    "a coragem guia a viagem pelo mar contra o inimigo. cada perigo exige "
+                    "coragem e o heroi parte em busca do destino enfrentando a batalha. "
+                    "aventura coragem e perigo no mar.");
+
+   /* O Hobbit — aventura/tesouro */
+   definir_conteudo(&g, t7,
+                    "uma aventura pelo mar e pelas montanhas em busca de um tesouro guardado. "
+                    "a viagem enfrenta o perigo a batalha e a coragem do heroi. o inimigo "
+                    "protege o tesouro mas a coragem vence o perigo. aventura tesouro e "
+                    "coragem em uma viagem de batalha.");
+
+   /* O Codigo Da Vinci — thriller/misterio */
+   definir_conteudo(&g, t8,
+                    "um thriller de traicao e vinganca onde o perigo ronda cada passo. a "
+                    "morte e o inimigo cercam a busca enquanto o destino se revela. a "
+                    "traicao move o coracao e a vinganca leva a morte. perigo inimigo "
+                    "traicao e destino marcam este thriller.");
+
    /* ── Perfis tematicos dos GENEROS (palavras-chave) ──
       Pequenos documentos que posicionam cada genero no mesmo espaco
       vetorial dos livros. As arestas Texto->Genero serao descobertas
@@ -98,6 +123,9 @@ int main(void)
    adicionar_arco(&g, u2, t4, 5.0);
    adicionar_arco(&g, u3, t3, 4.0);
    adicionar_arco(&g, u3, t5, 5.0);
+   adicionar_arco(&g, u4, t6, 5.0);
+   adicionar_arco(&g, u4, t7, 4.0);
+   adicionar_arco(&g, u4, t4, 3.0);
 
    /* ── Categorizacao Texto -> Genero: agora DINAMICA (ver Fase 0).
       Os antigos vinculos manuais foram removidos e sao substituidos

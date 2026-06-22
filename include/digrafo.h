@@ -6,7 +6,7 @@
 #include <string.h>
 #include <float.h>
 
-#define MAX_VERTICES 20
+#define MAX_VERTICES 60
 #define MAX_ID_LEN   32
 #define MAX_TEXTO    512
 #define INF          DBL_MAX

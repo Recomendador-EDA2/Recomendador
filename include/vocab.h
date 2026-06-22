@@ -3,7 +3,7 @@
 
 #include "digrafo.h"
 
-#define MAX_VOCAB     256
+#define MAX_VOCAB     512
 #define MAX_TERMO     40
 #define HASH_SIZE     509
 #define LIMIAR_THETA  0.10
