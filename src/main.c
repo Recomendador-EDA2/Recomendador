@@ -25,6 +25,8 @@ int main(void)
    int u2 = adicionar_vertice(&g, "u2", USUARIO); /* Maria */
    int u3 = adicionar_vertice(&g, "u3", USUARIO); /* Pedro */
    int u4 = adicionar_vertice(&g, "u4", USUARIO); /* Thiago */
+   int u5 = adicionar_vertice(&g, "u5", USUARIO); /* Ana */
+   int u6 = adicionar_vertice(&g, "u6", USUARIO); /* Carlos */
 
    /* ── Livros ── */
    int t1 = adicionar_vertice(&g, "t1", TEXTO); /* Dom Casmurro */
@@ -35,6 +37,12 @@ int main(void)
    int t6 = adicionar_vertice(&g, "t6", TEXTO); /* Percy Jackson */
    int t7 = adicionar_vertice(&g, "t7", TEXTO); /* O Hobbit */
    int t8 = adicionar_vertice(&g, "t8", TEXTO); /* O Codigo Da Vinci */
+   int t9  = adicionar_vertice(&g, "t9",  TEXTO); /* O Senhor dos Aneis */
+   int t10 = adicionar_vertice(&g, "t10", TEXTO); /* Orgulho e Preconceito */
+   int t11 = adicionar_vertice(&g, "t11", TEXTO); /* A Garota no Trem */
+   int t12 = adicionar_vertice(&g, "t12", TEXTO); /* As Cronicas de Narnia */
+   int t13 = adicionar_vertice(&g, "t13", TEXTO); /* O Apanhador no Campo de Centeio */
+   int t14 = adicionar_vertice(&g, "t14", TEXTO); /* Garota Exemplar */
 
    /* ── Generos ── */
    int fi = adicionar_vertice(&g, "ficcao", GENERO);
@@ -104,6 +112,50 @@ int main(void)
                     "traicao move o coracao e a vinganca leva a morte. perigo inimigo "
                     "traicao e destino marcam este thriller.");
 
+   /* O Senhor dos Aneis — aventura/heroi */
+   definir_conteudo(&g, t9,
+                    "uma aventura perigosa leva o heroi pela floresta em busca de "
+                    "destruir um mal antigo. a coragem do grupo enfrenta o inimigo e "
+                    "o perigo a cada passo da viagem. a batalha final decide o destino "
+                    "de todos. aventura coragem perigo e batalha contra o inimigo.");
+
+   /* Orgulho e Preconceito — romance */
+   definir_conteudo(&g, t10,
+                    "um amor que nasce do orgulho e do preconceito entre o casal. a "
+                    "paixao cresce lentamente enquanto o coracao supera a duvida e o "
+                    "ciume. o sofrimento do mal-entendido se desfaz e o amor verdadeiro "
+                    "vence. amor paixao coracao e casal.");
+
+   /* A Garota no Trem — thriller/misterio */
+   definir_conteudo(&g, t11,
+                    "um thriller psicologico onde a traicao e o ciume escondem um "
+                    "crime perigoso. a protagonista busca a verdade enquanto o "
+                    "inimigo se esconde na propria vizinhanca. a morte de uma mulher "
+                    "revela segredos e destino. traicao perigo morte e inimigo.");
+
+   /* As Cronicas de Narnia — aventura/ficcao */
+   definir_conteudo(&g, t12,
+                    "uma aventura magica leva as criancas a um mundo desconhecido e "
+                    "perigoso. a coragem do grupo enfrenta o inimigo em uma grande "
+                    "batalha pelo destino do reino. o heroi vence o perigo e a "
+                    "tragedia se transforma em esperanca. aventura coragem batalha "
+                    "e destino.");
+
+   /* O Apanhador no Campo de Centeio — ficcao/drama */
+   definir_conteudo(&g, t13,
+                    "a historia de um jovem perdido enfrenta a tragedia do proprio "
+                    "destino e o sofrimento da solidao. o coracao confuso busca "
+                    "sentido em meio a duvida e a dor. a ciume e a traicao dos "
+                    "outros marcam sua jornada. destino sofrimento coracao e "
+                    "tragedia.");
+
+   /* Garota Exemplar — thriller */
+   definir_conteudo(&g, t14,
+                    "um thriller de traicao onde o casamento esconde uma vinganca "
+                    "calculada. o ciume e a manipulacao levam ao perigo e a morte. "
+                    "o inimigo verdadeiro estava dentro de casa e o destino do casal "
+                    "termina em tragedia. traicao vinganca perigo e morte.");
+
    /* ── Perfis tematicos dos GENEROS (palavras-chave) ──
       Pequenos documentos que posicionam cada genero no mesmo espaco
       vetorial dos livros. As arestas Texto->Genero serao descobertas
@@ -126,6 +178,12 @@ int main(void)
    adicionar_arco(&g, u4, t6, 5.0);
    adicionar_arco(&g, u4, t7, 4.0);
    adicionar_arco(&g, u4, t4, 3.0);
+   adicionar_arco(&g, u5, t9, 5.0);
+   adicionar_arco(&g, u5, t10, 4.0);
+   adicionar_arco(&g, u5, t12, 3.0);
+   adicionar_arco(&g, u6, t11, 5.0);
+   adicionar_arco(&g, u6, t13, 4.0);
+   adicionar_arco(&g, u6, t14, 4.0);
 
    /* ── Categorizacao Texto -> Genero: agora DINAMICA (ver Fase 0).
       Os antigos vinculos manuais foram removidos e sao substituidos
@@ -156,6 +214,7 @@ int main(void)
    imprimir_recomendacoes(&g, resultado, n, usou_fallback);
 
    /* Suprimir warnings de variaveis nao utilizadas nos dados sinteticos */
+   /* Suprimir warnings de variaveis nao utilizadas nos dados sinteticos */
    (void)u2;
    (void)u3;
    (void)t2;
@@ -166,6 +225,17 @@ int main(void)
    (void)av;
    (void)ro;
    (void)th;
+   (void)t6;
+   (void)t7;
+   (void)t8;
+   (void)u5;
+   (void)u6;
+   (void)t9;
+   (void)t10;
+   (void)t11;
+   (void)t12;
+   (void)t13;
+   (void)t14;
 
    liberar_digrafo(&g);
    return 0;
